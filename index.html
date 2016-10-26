@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>React js</title>
+    <script src="reactjs/react.js"></script>
+    <script src="reactjs/react-dom.js"></script>
+  </head>
+  <body>
+    <div id="react-app"></div>
+    <script>
+        var docs = document.getElementById('react-app');
+        var elem = React.createElement('div', { id: "reactDiv"}
+            , React.createElement('h1', {}, " Contacts")
+            , React.createElement('ul', {}
+                ,React.createElement('li',{}
+                  , React.createElement('h3', {}, "Sync 1")
+                  , React.createElement('a', {href: 'mailto:sync1@gmail.com'}, 'sync1@gmail.com')
+                 ),
+                 React.createElement('li', {}
+                  ,React.createElement('h3', {}, "Sync 2")
+                  ,React.createElement('a', {href : 'mailto:sync2@gmail.com'}, "sync2@gmail.com")
+                 )
+              )
+         );
+    	  ReactDOM.render(elem, docs);
+    </script>
+  </body>
+</html>
