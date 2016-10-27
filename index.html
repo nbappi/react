@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<title>React js</title>
+    <title>React js</title>
     <script src="reactjs/react.js"></script>
     <script src="reactjs/react-dom.js"></script>
   </head>
   <body>
     <div id="react-app"></div>
     <script>
+        var lists = [{ key : 1, name : "Sync 1", email : "sync1@gmail.com"}, { key : 2, name : "Sync2", email : "sync2@gmail.com"}];
+        var elemList = lists
+                       .filter( function(list){
+                           return list.email;
+                       })
+                       .map(function(list){
+                           return React.createElement('li', {}
+                                ,React.createElement('h2', {}, list.name)
+                                ,React.createElement('a', {}, list.email)
+                            );
+                       });
+
         var docs = document.getElementById('react-app');
         var elem = React.createElement('div', { id: "reactDiv"}
             , React.createElement('h1', {}, " Contacts")
-            , React.createElement('ul', {}
-                ,React.createElement('li',{}
-                  , React.createElement('h3', {}, "Sync 1")
-                  , React.createElement('a', {href: 'mailto:sync1@gmail.com'}, 'sync1@gmail.com')
-                 ),
-                 React.createElement('li', {}
-                  ,React.createElement('h3', {}, "Sync 2")
-                  ,React.createElement('a', {href : 'mailto:sync2@gmail.com'}, "sync2@gmail.com")
-                 )
-              )
+            , React.createElement('ul', {}, elemList)
          );
-    	  ReactDOM.render(elem, docs);
+        ReactDOM.render(elem, docs);
     </script>
   </body>
 </html>
